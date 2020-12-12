@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		LOGIN
+	</title>
+    <style type="text/css">
+        body
+{
+    background-color: rgb(214,214,194);
+}
+
+#window
+{
+    border-radius: 5px;
+    background-color: white;
+    width: 500px;
+    padding: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+    border-top: 5px solid rgb(0,153,0);
+    margin-top: 100px;
+}
+
+#window hr
+{
+   border: 1px solid black;
+}
+
+#window h1
+{
+    text-align: center;
+    color: rgb(0,153,0);
+}
+
+#window input
+{
+    width: 300px;
+    height: 30px;
+}
+
+#window a
+{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(153,204,255);
+}
+
+#lngbttn
+{
+   background-color: rgb(0,153,0);
+   font-weight: bold;
+   border-radius: 30px;
+   font-size: 21px;
+   border-style: none;
+   outline: none;
+}
+    </style>
+</head>
+<body>
+	<center>
+    <div id="window">
+    	<h1>FACULTY LOGIN</h1>
+    	<hr><br>
+        <form action="login_check.php" method="post">
+        	<input type="text" name="fac_id" placeholder="faculty id" required><br><br>
+        	<input type="password" name="password" placeholder="password" required><br><br>
+        	<label name="indicator" id="l_error" style="height: 20px;border: none;outline: none;pointer-events: none;color: red;" disabled></label><br><br>
+        	<input type="submit" name="submit" value="Login" id="lngbttn" style="height: 60px;"><br><br>
+        </form>
+    </div>
+    </center>
+    <script type="text/javascript">
+        var url = window.location.href;
+        var index = url.indexOf("?login_error");
+        if(index>-1)
+        {
+            document.getElementById("l_error").innerHTML = "username or password is incorrect";
+        }
+    </script>
+</body>
+</html>

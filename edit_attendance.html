@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+	<style media="screen">
+		body{
+		background-image: url("back.png");
+		background-color: #cccccc;
+		}
+		h1{
+		padding-top: 15px;
+		height: 50px;
+		background-color: #A9A9A9;
+		}
+		#label1{
+			margin-left: 15%;
+			font-size : 23px;
+      /*background-color: green;*/
+		}
+		#label2{
+			margin-top : 30px;
+			margin-left: 15%;
+			font-size : 23px;
+		}
+		#button{
+			margin-top: 30px;
+			margin-left: 15%;
+			font-size: 20px;
+			border-radius: 10px;
+		}
+		#i1{
+			margin-left: 30px;
+			width: 200px;
+			height: 30px;
+			font-size : 20px;
+			border-radius: 5px;
+      display: inline;
+		}
+		#i2{
+			margin-left: 30px;
+			width: 200px;
+			height: 30px;
+			font-size : 20px;
+			border-radius: 5px;
+		}
+    </style>
+  <script>
+
+    window.onload=function loadcrs()
+   {
+     var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("i1").innerHTML= this.responseText;
+  }
+};
+xmlhttp.open("GET","user_laoder2.php",true);
+xmlhttp.send();
+   }
+
+
+   function fun1(str1)
+   {var str=str1;
+   str=str+"_";
+   var str=str+document.getElementById('i2').value;
+  if (str == "") {
+document.getElementById("form_here").innerHTML = "";
+return;
+} else {
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("form_here").innerHTML= this.responseText;
+  }
+};
+//document.getElementById("form_here").innerHTML= str;
+xmlhttp.open("POST","practise3.php?q="+str,true);
+xmlhttp.send();
+}
+   }
+
+       function fun2() {
+         var str=document.getElementById('i3').value;
+         str=str+"_";
+         var str=str+document.getElementById('i2').value;
+        if (str == "") {
+      document.getElementById("form_here").innerHTML = "";
+      return;
+    } else {
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("form_here").innerHTML= this.responseText;
+        }
+      };//document.getElementById("form_here").innerHTML= str;
+      xmlhttp.open("POST","practise3.php?q="+str,true);
+      xmlhttp.send();
+    }
+  }
+     function myfun(str,str2) {
+     var txt;
+ var r = confirm("do you really want to change the attendance entry!");
+ if (r == true) {
+  if (str == "") {
+ document.getElementById("abced").innerHTML = "";
+ return;
+ } else {
+ var xmlhttp = new XMLHttpRequest();
+ xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("abced").innerHTML= this.responseText;
+  }
+ };
+
+ xmlhttp.open("POST","practise1.php?id="+str+"_"+str2,true);
+ xmlhttp.send();
+ }
+ }
+ else
+  {
+    document.getElementById(str).selectedIndex= (document.getElementById(str).selectedIndex==1?0:1);
+  }
+}
+
+  </script>
+  <title>
+    <h1>EDIT ATTENDANCE</h1><br><br><br>
+  </title>
+</head>
+<body>
+	<center> <h1>EDIT ATTENDANCE</h1><br><br><br></center>
+<form class="" method="post">
+
+</form>
+  <form class="" method="post" onsubmit="return false;" >
+    <label for="" id="label1">EDIT BY SUBJECT CODE</label>
+    <!-- <input type="text" name="crs_id" value="" id="i1" required onchange="fun2()"><br><br> -->
+    <!-- <SELECT id="i1" oninput='fun2()' required></SELECT> -->
+    <div id="i1">
+
+    </div>
+ <!--    <div id="ld_csid">
+      <SELECT id='i1' oninput='fun2()' required>
+    </div> -->
+    <br><br>
+    <label for="" id="label2">EDIT BY ROLL NUMBER</label>
+    <input type="text" name="roll" value=""  id="i2" oninput="fun2()"><br><br>
+  </form>
+  <div class="" id="form_here">
+
+  </div>
+  <div class="" id="abced">
+
+  </div>
+</body></html>

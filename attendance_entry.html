@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <style media="screen">
+    #def{
+      background-color: #ebf6f5;
+        }
+
+    #a1{
+      position: absolute;
+      right: 0px;
+    }
+    #abc{
+        border-radius:5px;
+        height: auto;
+        width : 90%;
+        background-color: #ffffff;
+       float: left;
+       padding-top: 30px;
+       padding-left: 5%;
+       padding-right: 5%;
+        margin: none;
+      color: black;
+      font-style: Times New Roman Georgia;
+      }
+      .new {
+      color:black;
+      width : 400px;
+      display : inline-block;
+      font-weight: bold;
+
+
+      }
+      #abc input{
+
+      }
+      #abc form{
+        /*margin-left: 15%;*/
+
+      }
+    div input{
+    /*position: static;*/
+    }
+
+    #form_here{
+      background-color: #dedede;
+      border-radius: 10px;
+      margin-right:5%;
+      width : 300px;
+      padding-left: 20px;
+    }
+
+    #form_here label{
+      margin-top: 30px;
+      margin-left: 20px;
+    }
+
+    #form_here input{
+      margin-top: 30px;
+      margin-right: 10px;
+    }
+
+    .upld
+    {
+       float: right;
+       /*background-color: #dddddd;*/
+    }
+
+    .linear
+    {
+      margin:20px;
+      /*padding:10px;*/
+    }
+
+    #excel
+    {
+      border-radius: 15px;
+       background-color: #dddddd;
+       box-shadow: 5px 5px 8px;
+       padding: 10px;
+       height: 200px;
+    }
+
+    #window1
+    {
+      /*background-color: #dddddd;*/
+      width: 850px;
+    }
+
+    #image
+    {
+      position: absolute;
+      visibility: hidden;
+    }
+
+    #i1
+    {
+      display: inline-block;
+    }
+
+    #tooltip:hover #image
+    {
+      visibility: visible;
+    }
+    </style>
+  <script>
+
+    window.onload=function loadcrs()
+   {
+     var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("i1").innerHTML= this.responseText;
+  }
+};
+xmlhttp.open("GET","user_loader.php",true);
+xmlhttp.send();
+   }
+
+  function validate(){
+    var key=document.getElementById("end").value;
+    var comp=document.getElementById("start").value;
+    if(key.substring(0,2)<comp.substring(0,2)|| (key.substring(0,2)==comp.substring(0,2)&&key.substring(3,5)<comp.substring(3,5)) ){
+      alert("enter valid End time");
+      return false;
+    }
+    return true;
+  }
+
+     function fun1(str) {
+      if (str == "") {
+    document.getElementById("form_here").innerHTML = "";
+    return;
+  } else {
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("form_here").innerHTML= this.responseText;
+      }
+    };
+    xmlhttp.open("POST","form_server.php?crs_id="+str,true);
+    xmlhttp.send();
+  }
+}
+
+function fun3(){
+
+  if (confirm("confirm submission")){
+    return true;
+
+  }
+  return false;
+}
+
+</script>
+    <title></title>
+  </head>
+  <body id="def">
+    <center><h1> Attendance entry</h1></center>
+<hr>
+
+    <div class="in_feilds" id="abc" style="display: flex;" >
+      <div class="linear" id="window1" style="">
+      <form id="" action="update_attendance.php" method="post">
+
+        <label for="" class = "new">SUBJECT CODE</label>
+        <!-- <input type="text" name="sub_code" value="" onchange="fun1(this.value)" required><br><br><br> -->
+        <!--  -->
+        <div id="i1">
+
+        </div>
+        <br><br><br>
+        <label for="" class = "new">DATE OF THE ATTENDANCE ENTRY</label>
+        <input type="date" name="att_date" value="" required><br><br><br>
+        <label for="" class = "new">STARTING TIME OF THE CLASS</label>
+        <input type="time" id="start" name="start_time" value="" required><br><br><br>
+        <label for="" class = "new">ENDING TIME OF THE CLASS</label>
+        <input type="time" name="end_time"  value="" id="end" required><br><br><br>
+        <label for="" class="new"><b>TODAY'S TOPIC</b></label>
+        <input type="text" name="topic" value="" required><br><br><br>
+        <div id="form_here">
+
+        </div>
+
+        <br><br>
+        <input type="submit" name="" id="lngbttn" onclick="return (validate() && fun3())" value="submit">
+
+        <br><br><br>
+      </form>
+       </div>
+         <div class="linear" id="excel" >
+      <form class="upld" action="abc.php" method="post" enctype="multipart/form-data">
+        <label style="margin:10px;"><b style="font-size: 22px;">FORMAT<sup id="tooltip" onfocus="">?<img src="table_image.png" id="image" width="350px"></sup>:</b></label>
+        <br>
+        <label style="margin: 10px;"><b style="font-size: 14px;">(courseid,date+starttime,date+endtime,topic)</b></label><br>
+        <label style="margin: 10px;"><b style="font-size: 14px;">(rollno,attendance) for each roll number</b></label>
+        <input style="margin-top: 10px;margin-right: 10px;margin-left: 10px;margin-top: 50px;" type="file" name="attendance" value="">
+        <input style="margin: 10px;" type="submit" name="submit" value="upload">
+    </form>
+    </div>
+    </div>
+    <br><br>
+  
+
+  </body>
+</html>

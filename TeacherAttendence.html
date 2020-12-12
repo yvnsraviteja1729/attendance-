@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teacher attendence</title>
+	<link rel="stylesheet" type="text/css" href="tatten.css">
+	<style media="screen">
+
+
+	</style>
+	<script type="text/javascript">
+		function fun1()
+		{
+			document.getElementById("display").src="attendance_entry.html";
+		}
+		function fun2()
+		{
+				document.getElementById("display").src="edit_attendance.html";
+		}
+		function fun3()
+		{
+				document.getElementById("display").src="attendance_overview.html";
+		}
+		function fun4()
+		{
+			if(confirm("Do you want to lock your database"))
+			   document.getElementById("display").src="lock.html";
+		}
+	</script>
+
+</head>
+<body id="main">
+	<div id="">
+   <h1 id="heading">ATTENDANCE PORTAL</h1>
+   <hr>
+   </div>
+   <div onclick="fun1()" class="slct" id="d1">ATTENDANCE ENTRY</div>
+   <div onclick="fun2()" class="slct" id="d2">ATTENDANCE UPDATE</div>
+   <div onclick="fun3()" class="slct" id="d3">ATTENDANCE OVERVIEW</div>
+   <div onclick="fun4()" class="slct" id="d4">ATTENDANCE LOCK</div>
+   <div>
+	 	<iframe id="display" src="start_page.html" scrolling="no">
+
+		</iframe>
+   </div>
+	 <div class="" id="error message">
+
+	 </div>
+	 <script type="text/javascript">
+			 var url = window.location.href;
+			 var index = url.indexOf("?reloading");
+			 if(index>-1)
+			 {
+					 document.getElementById("display").src = "reload.php";
+			 }
+	 </script>
+</body>
+</html>

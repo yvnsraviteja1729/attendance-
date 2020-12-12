@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" href="style_me2.css"> -->
+  <script>
+      window.onload=function loadcrs()
+   {
+     var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("i1").innerHTML= this.responseText;
+  }
+};
+xmlhttp.open("GET","user_loader.php",true);
+xmlhttp.send();
+   }
+
+       function fun1(str) {
+        if (str == "") {
+      document.getElementById("form_here").innerHTML = "";
+      return;
+    } else {
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("form_here").innerHTML= this.responseText;
+        }
+      };
+      xmlhttp.open("POST","abc1.php?crs_id="+str,true);
+      xmlhttp.send();
+    }
+  }
+
+  </script>
+     <meta charset="utf-8">
+     <title></title>
+   </head>
+   <body>
+     <div id="window">
+      <h2 align="center">LOCK</h2>
+     <form class="" onsubmit="return false">
+      <label for="">ENTER THE SUBJECT CODE to lock</label>
+     <div id="i1">
+
+     </div>
+      <div id="form_here">
+
+       </div>
+     </form>
+     </div>
+
+   </body>
+ </html>

@@ -1,0 +1,137 @@
+body{
+    max-width:1200px;
+}
+.logo{
+    position: absolute;
+    height: 48px;
+    left: 6.81%;
+    right: 90.01%;
+    top: 31px;
+
+}
+@font-face {
+    src: url(fonts/AvenirLTStd-Roman.otf);
+    font-family: Avenir-Roman;
+}
+@font-face{
+    src: url(fonts/AvenirLTStd-Book.otf);
+    font-family: Avenir-Book;
+}
+.header h1{
+    position: absolute;
+    width: 215px;
+    height: 43px;
+    left: calc(50% - 215px/2 + 0.5px);
+    top: calc(50% - 60px/2 - 180px);
+    font-family: Avenir-Roman;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 43px;
+
+    color: #000000;
+}
+.username{
+    position: absolute;
+    width: 316px;
+    height: 60px;
+    left: calc(50% - 316px/2);
+    top: calc(50% - 60px/2 - 76px);
+    padding-left: 20px;
+    background: rgba(196, 196, 196, 0.29);
+    border-radius: 30px;
+ 
+    border: none;
+}
+.username::placeholder{
+    font-family: Avenir-Book;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: rgba(0, 0, 0, 0.19);
+}
+#error{
+    display: none;   
+    position: absolute;
+    width: 316px;
+    height: 60px;
+    left: calc(50% - 316px/2);
+    top: calc(50% - 60px/2 + 200px);
+    background: rgba(196, 196, 196, 0.29);
+    border-radius: 30px;
+    padding-left: 20px;
+    border:none;
+
+}
+.password{
+    position: absolute;
+    width: 316px;
+    height: 60px;
+    left: calc(50% - 316px/2);
+    top: calc(50% - 60px/2 + 11px);
+    background: rgba(196, 196, 196, 0.29);
+    border-radius: 30px;
+    padding-left: 20px;
+    border:none;
+}
+.password::placeholder{
+    font-family: Avenir-Book;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: rgba(0, 0, 0, 0.19);
+}
+
+.login-button{
+    position: absolute;
+    width: 136px;
+    height: 54px;
+    left: calc(50% - 136px/2);
+    top: calc(50% - 54px/2 + 95px);
+    border-radius: 30px;
+    font-family: Avenir-Book;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 18px;
+    line-height: 22px;
+    outline: none;
+    border: 1px solid;
+    background: #FFFFFF;
+    color:#0B3152;
+}
+
+.bg-1{
+    position: absolute;
+    width: 50vw;
+    height: 373px;
+    left: -24px;
+    bottom: 0px;
+    opacity: 2%
+}
+.bg-2{
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    left: calc(50% - 558px/2 + 260px);
+    top: calc(50% - 406px/2 + 190px);
+    opacity: 3%;
+}
+.username:focus {
+    outline: none;
+    background: rgba(196, 196, 196, 0.158) ;
+}
+.password:focus {
+    outline: none;
+    background: rgba(196, 196, 196, 0.158)
+  
+}
+.login-button:hover {
+    background: #0B3152;;
+    border:none;
+    color: #FFFFFF;
+    
+}

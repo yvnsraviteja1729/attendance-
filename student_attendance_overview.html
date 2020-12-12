@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style_me.css">
+  <script>
+       function fun1(str) {
+        if (str == "") {
+      document.getElementById("form_here").innerHTML = "";
+      return;
+    } else {
+
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("form_here").innerHTML= this.responseText;
+        }
+      };
+      xmlhttp.open("POST","stu_overview.php?crs_id="+str,true);
+      xmlhttp.send();
+    }
+  }
+  function fun2(str) {
+   if (str == "") {
+ document.getElementById("form_here").innerHTML = "";
+ return;
+} else {
+
+ var xmlhttp = new XMLHttpRequest();
+ xmlhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("form_here").innerHTML= this.responseText;
+   }
+ };
+ xmlhttp.open("POST","stu_overview.php?crs_id="+str,true);
+ xmlhttp.send();
+}
+}
+
+  </script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="window">
+      <h2 align="center">OVERVIEW</h2>
+    <form class="" onsubmit="return false">
+      <label for="">ENTER ROLL NUMBER</label>
+      <input type="text" name="sub_code" value="" onchange="fun1(this.value)" required><br>
+    </form>
+    </div>
+    <div class="" id="form_here">
+
+    </div>
+  </body>
+</html>
